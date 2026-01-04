@@ -10,7 +10,11 @@ import { useEffect, useState } from 'react'
 import { Toaster } from 'sonner'
 import { useLoadBlog } from './hooks/use-load-blog'
 
-export default function WritePage() {
+type WritePageProps = {
+    categories?: string[]
+}
+
+export default function WritePage({ categories = [] }: WritePageProps) {
 	const { form, cover, reset } = useWriteStore()
 	const { isPreview, closePreview } = usePreviewStore()
     const [slug, setSlug] = useState<string | null>(null)
@@ -42,7 +46,7 @@ export default function WritePage() {
                 <>
                     <div className='flex h-full justify-center gap-6 px-6 pt-24 pb-12'>
                         <WriteEditor />
-                        <WriteSidebar />
+                        <WriteSidebar categories={categories} />
                     </div>
 
                     <WriteActions />

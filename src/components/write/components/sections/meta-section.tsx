@@ -1,13 +1,16 @@
 import { motion } from 'motion/react'
 import { useWriteStore } from '../../stores/write-store'
 import { TagInput } from '../ui/tag-input'
+import { useState } from 'react'
 
 type MetaSectionProps = {
 	delay?: number
+    categories?: string[]
 }
 
-export function MetaSection({ delay = 0 }: MetaSectionProps) {
+export function MetaSection({ delay = 0, categories = [] }: MetaSectionProps) {
 	const { form, updateForm } = useWriteStore()
+    const [isCustomCategory, setIsCustomCategory] = useState(false)
 
 	return (
 		<motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay }} className='card relative'>
@@ -26,7 +29,38 @@ export function MetaSection({ delay = 0 }: MetaSectionProps) {
 				<TagInput tags={form.tags} onChange={tags => updateForm({ tags })} />
                 
                 <div className="text-xs text-gray-500">分类</div>
-                <TagInput tags={form.categories} onChange={categories => updateForm({ categories })} />
+                {categories.length > 0 && !isCustomCategory ? (
+                    <select 
+                        className="bg-card w-full rounded-lg border px-3 py-2 text-sm outline-none"
+                        value={categories.includes(form.categories[0]) ? form.categories[0] : ''}
+                        onChange={e => {
+                            const val = e.target.value
+                            if (val === '__custom__') {
+                                setIsCustomCategory(true)
+                            } else {
+                                updateForm({ categories: [val] })
+                            }
+                        }}
+                    >
+                        <option value="" disabled>选择分类...</option>
+                        {categories.map(c => (
+                            <option key={c} value={c}>{c}</option>
+                        ))}
+                        <option value="__custom__">+ 自定义/多选...</option>
+                    </select>
+                ) : (
+                    <div className="space-y-1">
+                        <TagInput tags={form.categories} onChange={categories => updateForm({ categories })} />
+                        {categories.length > 0 && (
+                            <button 
+                                onClick={() => setIsCustomCategory(false)}
+                                className="text-xs text-primary hover:underline"
+                            >
+                                返回选择已有分类
+                            </button>
+                        )}
+                    </div>
+                )}
 
 				<input
 					type='datetime-local'
