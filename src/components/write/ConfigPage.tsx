@@ -169,17 +169,19 @@ export function ConfigPage() {
             const token = await getAuthToken()
             if (!token) throw new Error('未授权')
 
+            const toastId = toast.loading('正在初始化保存...')
+
             let configToUpdate = parsedConfig ? JSON.parse(JSON.stringify(parsedConfig)) : null
             const treeItems: TreeItem[] = []
 
             // 1. Process Images
             if (Object.keys(pendingImages).length > 0) {
                 const totalImages = Object.keys(pendingImages).length
-                toast.info(`准备上传 ${totalImages} 张图片...`)
+                toast.loading(`准备上传 ${totalImages} 张图片...`, { id: toastId })
                 
                 let idx = 1
                 for (const [target, { file }] of Object.entries(pendingImages)) {
-                    toast.info(`正在处理第 ${idx}/${totalImages} 张图片: ${file.name}...`)
+                    toast.loading(`正在处理第 ${idx}/${totalImages} 张图片: ${file.name}...`, { id: toastId })
                     const base64 = await fileToBase64NoPrefix(file)
                     const ext = file.name.split('.').pop() || 'png'
                     const filename = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`
@@ -220,7 +222,7 @@ export function ConfigPage() {
             }
 
             const configBase64 = toBase64Utf8(contentToSave)
-            toast.info('正在创建配置文件 Blob...')
+            toast.loading('正在创建配置文件 Blob...', { id: toastId })
             const { sha: configSha } = await createBlob(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, configBase64, 'base64')
             treeItems.push({
                 path: 'ryuchan.config.yaml',
@@ -230,7 +232,7 @@ export function ConfigPage() {
             })
 
             // 3. Create Commit
-            toast.info('正在获取分支信息...')
+            toast.loading('正在获取分支信息...', { id: toastId })
             
             // Get current ref
             const refName = `heads/${GITHUB_CONFIG.BRANCH}`
@@ -242,11 +244,11 @@ export function ConfigPage() {
             const baseTreeSha = commit.tree.sha
 
             // Create new tree
-            toast.info('正在创建文件树...')
+            toast.loading('正在创建文件树...', { id: toastId })
             const { sha: newTreeSha } = await createTree(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, treeItems, baseTreeSha)
 
             // Create new commit
-            toast.info('正在创建提交...')
+            toast.loading('正在创建提交...', { id: toastId })
             const { sha: newCommitSha } = await createCommit(
                 token, 
                 GITHUB_CONFIG.OWNER, 
@@ -257,10 +259,10 @@ export function ConfigPage() {
             )
 
             // Update ref
-            toast.info('正在更新分支...')
+            toast.loading('正在更新分支...', { id: toastId })
             await updateRef(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, refName, newCommitSha)
 
-			toast.success('配置已更新！等待部署生效')
+			toast.success('配置已更新！等待部署生效', { id: toastId })
 		} catch (error: any) {
             console.error(error)
 			toast.error('保存配置失败: ' + error.message)
