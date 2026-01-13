@@ -1,7 +1,7 @@
 site:
   tab: Yethan
   title: Yethan
-  description: 🌸 轻盈、优雅、纯净 —— 用文字与图片记录生活与创意
+  description: 不必多言
   language: zh
   favicon: /favicon.ico
   theme:
@@ -10,7 +10,7 @@ site:
     code: github-dark
   date_format: ddd MMM DD YYYY
   blog:
-    pageSize: 8
+    pageSize: 10
   banner:
     enableRandom: true
     randomUrl: https://t.alcy.cc/lai
@@ -22,7 +22,7 @@ site:
   icp_link: https://icp.gov.moe/?keyword=20261117
   pages:
     home:
-      title: RyuChan's Blog
+      title: Yethan's Blog
       subtitle: 道虽迩，不行不至；事虽小，不为不成
       typewriterTexts:
         - 古之立大事者，不惟有超世之才，亦必有坚韧不拔之志
@@ -37,20 +37,20 @@ site:
         - 突破，就是做别人认为不可能的事
         - 最困难之时，就是离成功不远之日
     friend:
-      title: 友人帐
-      subtitle: 记录那些珍贵的友谊，分享彼此的故事
+      title: 好友簿
+      subtitle: 海内存知己，天涯若比邻
     about:
       title: About Me
-      subtitle: 一个热爱生活与技术的普通人！
+      subtitle: 能活着就不错了，自我介绍什么的就算了吧
     navigation:
       title: 网站导航
-      subtitle: 收藏的常用网站和工具链接
+      subtitle: 我常用的收藏的常用网站和工具链接
     anime:
       title: 追番
       subtitle: 记录和分享我喜欢的动漫作品
     project:
       title: Projects
-      subtitle: 展示一些个人搭建的项目，搬运工！
+      subtitle: 展示一些个人搭建的项目
     music:
       title: Cloud Music
       subtitle: 沉浸式享受音乐时光
@@ -92,7 +92,7 @@ site:
       svg: material-symbols:code-blocks-outline
       target: _self
     - id: friend
-      text: 友人帐
+      text: 好友簿
       href: /friend
       svg: material-symbols:supervisor-account-outline-rounded
       target: _self
@@ -106,15 +106,15 @@ site:
     link: https://hub.xiaozhangya.xin
 anime:
   bilibili:
-    uid: '1536411565'
+    uid: '3546703925872991'
   tmdb:
     apiKey: 08a6bef260044f70c150251c79f2e476
     listId: '8556173'
 github:
-  owner: kobaridev
-  repo: RyuChan
+  owner: 2545711861
+  repo: Yethan
   branch: main
-  appId: '-'
+  appId: '2648967'
   encryptKey: wudishiduomejimo
 umami:
   enable: true
@@ -123,8 +123,8 @@ umami:
   websiteId: 3f9afc6c-f0bd-4734-be15-6d053960d34d
   timezone: Asia/Shanghai
 user:
-  name: KoBariDev
-  description: Ciallo～(∠・ω<)⌒★
+  name: Yethan
+  description: 不必多言
   site: https://hub.xiaozhangya.xin
   avatar: /images/uploads/1767534109675-0p1nho.jpg
   sidebar:
