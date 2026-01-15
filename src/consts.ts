@@ -9,9 +9,9 @@ export const BLOG_SLUG_KEY = import.meta.env.BLOG_SLUG_KEY || ''
  * GitHub 仓库配置
  */
 export const GITHUB_CONFIG = {
-	OWNER: import.meta.env.PUBLIC_GITHUB_OWNER || import.meta.env.NEXT_PUBLIC_GITHUB_OWNER || import.meta.env.YAML_GITHUB_CONFIG?.owner || 'yysuni',
-	REPO: import.meta.env.PUBLIC_GITHUB_REPO || import.meta.env.NEXT_PUBLIC_GITHUB_REPO || import.meta.env.YAML_GITHUB_CONFIG?.repo || '2025-blog-public',
+	OWNER: import.meta.env.PUBLIC_GITHUB_OWNER || import.meta.env.NEXT_PUBLIC_GITHUB_OWNER || import.meta.env.YAML_GITHUB_CONFIG?.owner || '2545711861',
+	REPO: import.meta.env.PUBLIC_GITHUB_REPO || import.meta.env.NEXT_PUBLIC_GITHUB_REPO || import.meta.env.YAML_GITHUB_CONFIG?.repo || '2026-blog-public',
 	BRANCH: import.meta.env.PUBLIC_GITHUB_BRANCH || import.meta.env.NEXT_PUBLIC_GITHUB_BRANCH || import.meta.env.YAML_GITHUB_CONFIG?.branch || 'main',
-	APP_ID: import.meta.env.PUBLIC_GITHUB_APP_ID || import.meta.env.NEXT_PUBLIC_GITHUB_APP_ID || import.meta.env.YAML_GITHUB_CONFIG?.appId || '-',
+	APP_ID: import.meta.env.PUBLIC_GITHUB_APP_ID || import.meta.env.NEXT_PUBLIC_GITHUB_APP_ID || import.meta.env.YAML_GITHUB_CONFIG?.appId || '2648967',
 	ENCRYPT_KEY: import.meta.env.PUBLIC_GITHUB_ENCRYPT_KEY || import.meta.env.YAML_GITHUB_CONFIG?.encryptKey || 'wudishiduomejimo',
 } as const
