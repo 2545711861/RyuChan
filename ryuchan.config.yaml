@@ -9,7 +9,7 @@ site:
     dark: dracula
     code: github-dark
   date_format: ddd MMM DD YYYY
-  blog:
+  website:
     pageSize: 10
   banner:
     enableRandom: true
