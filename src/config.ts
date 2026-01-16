@@ -31,8 +31,8 @@ export const SITE_PAGES = config.site.pages || {};
 export const TYPEWRITER_TEXTS = config.site.pages?.home?.typewriterTexts || [];
 
 // 博客配置
-export const BLOG_CONFIG = config.site.website;
-export const BLOG_PAGE_SIZE = config.site.website.pageSize;
+export const BLOG_CONFIG = config.site.blog;
+export const BLOG_PAGE_SIZE = config.site.blog.pageSize;
 
 // TMDB 配置
 export const TMDB_CONFIG = config.anime?.tmdb;
