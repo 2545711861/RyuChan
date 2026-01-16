@@ -108,7 +108,7 @@ anime:
   bilibili:
     uid: '3546703925872991'
   tmdb:
-    apiKey: 08a6bef260044f70c150251c79f2e476
+    apiKey: d7d932579f608514ba0af975423e54fa
     listId: '8556173'
 github:
   owner: 2545711861
