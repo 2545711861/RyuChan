@@ -3,7 +3,7 @@ site:
   title: Yethan
   description: 不必多言
   language: zh
-  favicon: /favicon.ico
+  favicon: /images/uploads/1768538170921-33xup3.ico
   theme:
     light: retro
     dark: dracula
