@@ -137,10 +137,14 @@ user:
         ariaLabel: BiliBili
         title: BiliBili
         svg: ri:bilibili-line
-      - href: https://demo.131714.xyz/rss.xml
-        ariaLabel: Subscribe via Folo
-        title: RSS
-        svg: ri:rss-fill
+      - href: '3673831293'
+        ariaLabel: QQ
+        title: QQ
+        svg: ri:qq-line
+      - href: wxid_g416fmqhzc8122
+        title: WeChat
+        ariaLabel: WeChat
+        svg: ri:wechat-line
   footer:
     social:
       - href: https://github.com/kobaridev
