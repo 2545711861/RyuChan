@@ -32,7 +32,7 @@ export const TYPEWRITER_TEXTS = config.site.pages?.home?.typewriterTexts || [];
 
 // 博客配置
 export const BLOG_CONFIG = config.site.website;
-export const BLOG_PAGE_SIZE = config.site.blog.pageSize;
+export const BLOG_PAGE_SIZE = config.site.website.pageSize;
 
 // TMDB 配置
 export const TMDB_CONFIG = config.anime?.tmdb;
